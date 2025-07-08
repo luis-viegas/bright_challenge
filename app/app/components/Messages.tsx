@@ -10,10 +10,12 @@ import {
   BrainCircuit,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import ShowPastry from "./ShowPastry";
+import ReactMarkdown from "react-markdown";
 
 const getEmotionIcon = (emotion: string | null) => {
   switch (emotion) {
+    case "sadness":
+      return <Frown className="w-4 h-4 text-blue-500" />;
     case "anxious":
     case "stressed":
       return <Frown className="w-4 h-4 text-destructive" />;
@@ -84,7 +86,7 @@ export function Messages({ messages, showEmotions }) {
                 <p
                   className={`text-sm ${message.role === "user" ? "text-primary-foreground" : "text-foreground"}`}
                 >
-                  {message.content}
+                  <ReactMarkdown>{message.content}</ReactMarkdown>
                 </p>
               </div>
               <div

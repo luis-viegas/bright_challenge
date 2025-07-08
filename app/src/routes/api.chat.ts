@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { createDataStreamResponse, StreamData, streamText } from "ai";
-import { groq } from "@ai-sdk/groq";
+import { openai } from "@ai-sdk/openai";
 import { getEmotionForMessage } from "src/utils/emotion";
 import { generateSystemPrompt } from "src/utils/prompts";
 import { getTools } from "src/utils/tools";
@@ -46,7 +46,7 @@ export const generateResponse = createServerFn({
     return createDataStreamResponse({
       execute: (dataStream) => {
         const result = streamText({
-          model: groq("llama-3.1-8b-instant"),
+          model: openai("gpt-4.1-mini"),
           messages,
           system: systemPrompt,
           tools: getTools(),
