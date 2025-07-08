@@ -204,8 +204,13 @@ export const responseStrategies = {
   },
 
   // Neutral Fallback
-  neutral:
-    "The user's tone is neutral. Maintain a clear, concise, and professional tone. Focus on efficiency and accuracy in your response.",
+  neutral: {
+    strong:
+      "The user's tone is neutral. Maintain a clear, concise, and professional tone. Focus on efficiency and accuracy in your response.",
+    medium:
+      "The user's tone is neutral. Maintain a clear, concise, and professional tone. Focus on efficiency and accuracy in your response.",
+    weak: "The user's tone is neutral. Maintain a clear, concise, and professional tone. Focus on efficiency and accuracy in your response.",
+  },
 };
 
 const getEmotionTier = (score) => {
@@ -215,18 +220,28 @@ const getEmotionTier = (score) => {
 };
 
 export const generateSystemPrompt = ({
-  emotions,
+  currentEmotions,
+  historicalEmotions,
   topN = 3,
   minScoreThreshold = 0.1,
+  lookbackWindow = 3,
+  decayFactor = 0.6,
 }) => {
   const basePrompt = `You are a helpful assistant for a pastry shop called BrightStore. You sell all types of pastries. You are especially focused on responding to users with empathy and understanding, which means you must adapt your response based on the user's emotions.
+  Don't just give a list of pastries to the user (unless he asks for it). Instead, try to make good recommendations based on the user's emotions and preferences. If the user is happy, suggest a celebratory pastry. If they are sad, suggest something comforting. If they are excited, suggest something fun or adventurous.
+
+You can get a list of pastries available in the store by using the getPastries tool.
 
 Based on the user's primary emotions, your next response should be guided by the following strategies, blending them as needed:
 `;
 
-  // 1. Filter out emotions below the threshold to remove noise.
-  // 2. Take the top N of the remaining significant emotions.
-  const significantEmotions = emotions
+  const aggregatedEmotions = aggregateEmotions({
+    currentEmotions,
+    historicalEmotions,
+    lookbackWindow,
+    decayFactor,
+  });
+  const significantEmotions = aggregatedEmotions
     .filter((emotion) => emotion.score >= minScoreThreshold)
     .slice(0, topN);
 
@@ -253,4 +268,43 @@ Based on the user's primary emotions, your next response should be guided by the
     .join("\n");
 
   return `${basePrompt}\n${strategyInstructions}`;
+};
+
+const aggregateEmotions = ({
+  currentEmotions,
+  historicalEmotions,
+  lookbackWindow = 3,
+  decayFactor = 0.6,
+}) => {
+  const aggregatedScores = new Map();
+
+  // 1. Process the current emotions with full weight (1.0)
+  currentEmotions.forEach(({ label, score }) => {
+    aggregatedScores.set(label, (aggregatedScores.get(label) || 0) + score);
+  });
+
+  // 2. Process historical emotions with decaying weight
+  const relevantHistory = historicalEmotions.slice(0, lookbackWindow);
+  let currentWeight = decayFactor;
+
+  relevantHistory.forEach((emotionSet) => {
+    if (Array.isArray(emotionSet)) {
+      emotionSet.forEach(({ label, score }) => {
+        aggregatedScores.set(
+          label,
+          (aggregatedScores.get(label) || 0) + score * currentWeight
+        );
+      });
+    }
+    // Apply decay for the next older message
+    currentWeight *= decayFactor;
+  });
+
+  // 3. Convert map back to an array and sort by final score
+  const finalEmotions = Array.from(aggregatedScores, ([label, score]) => ({
+    label,
+    score,
+  })).sort((a, b) => b.score - a.score);
+
+  return finalEmotions;
 };

@@ -1,123 +1,143 @@
 {
   "products": [
     {
+        "id": 1,
       "title": "Pastel de Nata",
       "price": 1.30,
-      "description": "Cremoso pastel de nata com uma base folhada crocante e um toque de canela. O ex-líbris da pastelaria portuguesa.",
+      "description": "Creamy custard tart with a crispy puff pastry base and a hint of cinnamon. The hallmark of Portuguese pastry.",
       "imageUrl": "https://www.livingtours.com/public/blog/posts/20200123161347-reQkxvU6.jpg"
     },
     {
+      "id": 2,
       "title": "Bola de Berlim",
       "price": 1.50,
-      "description": "Massa fofa e frita, polvilhada com açúcar e recheada com um delicioso creme de ovos. Um clássico da praia.",
+      "description": "Fluffy fried dough, sprinkled with sugar and filled with a delicious egg cream. A beach classic.",
       "imageUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQYjGMtmHjc4I7uz9WnMekdrZCJC8j40pJJSafoi4eibyrEzyJzN3Pa9SSR7Kl7ohKIS9uyMy3jdCEsGh-QLzvA8B1qcyXIR0i6LmtHaQ"
     },
     {
+      "id": 3,
       "title": "Travesseiro de Sintra",
       "price": 1.80,
-      "description": "Doce folhado com um recheio irresistível de amêndoa e creme de ovos. Uma especialidade de Sintra.",
+      "description": "Puff pastry sweet with an irresistible filling of almond and egg cream. A specialty of Sintra.",
       "imageUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTIooTWTGGwNwPTCtQ8IH6VDdE9Q_7J0kik6CN5uFQzX9Ekv-uF52Q07yjIDU0DN3LzHpThX0mfyGDEZ4kRCMyjjkFsSVFkxP75ptyL1uBwQg"
     },
     {
+      "id": 4,
       "title": "Queijada de Sintra",
       "price": 1.10,
-      "description": "Pequena tarte de queijo fresco e ovos, com um sabor único e tradicional da vila de Sintra.",
+      "description": "Small tart of fresh cheese and eggs, with a unique and traditional flavor from the town of Sintra.",
       "imageUrl": "https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/9DC6ABEA-6480-41B3-A53E-173F7A9CA0B3/Derivates/CC07F370-A7A0-4DFF-A8A5-FE2891A1A1FE.jpg"
     },
     {
+      "id": 5,
       "title": "Pão de Ló de Ovar",
       "price": 15.00,
-      "description": "Bolo esponjoso e húmido no centro, com uma crosta fina e dourada. Vendido inteiro.",
+      "description": "Spongy and moist cake in the center, with a thin, golden crust. Sold whole.",
       "imageUrl": "https://solteiroscontracasados.com/wp-content/uploads/2020/11/receita-pao-de-lo.jpg"
     },
     {
+        "id": 6,
       "title": "Bolo de Arroz",
       "price": 1.20,
-      "description": "Bolinho individual com um sabor suave a limão e uma textura distinta. Perfeito para o lanche.",
+      "description": "Individual small cake with a mild lemon flavor and a distinct texture. Perfect for a snack.",
       "imageUrl": "https://www.panidor.pt/zArchives/Products/135/Photos/bolo%20arroz_rmp0406_ref167002%20copy.png?w=700&h=400&mode=pad"
     },
     {
+        "id": 7,
       "title": "Ovos Moles de Aveiro",
       "price": 1.40,
-      "description": "Doce de gemas de ovo e açúcar, envolto numa fina hóstia em formas marinhas. Tesouro de Aveiro.",
+      "description": "Sweet made of egg yolks and sugar, wrapped in a thin wafer in marine shapes. Treasure of Aveiro.",
       "imageUrl": "https://www.360meridianos.com/wp-content/uploads/2019/07/imagem-dos-ovos-moles-de-aveiro-por-dentro.jpg.webp"
     },
     {
+        "id": 8,
       "title": "Salame de Chocolate",
       "price": 2.20,
-      "description": "Rolo de chocolate e bolacha Maria, uma delícia que agrada a todas as idades. (Fatia)",
+      "description": "Chocolate and Maria biscuit roll, a delight that pleases all ages. (Slice)",
       "imageUrl": "https://feed.continente.pt/media/0y1dh32p/salame-chocolate.jpg?anchor=center&mode=crop&width=826&height=620&rnd=133779546495870000&format=webp"
     },
     {
+        "id": 9,
       "title": "Torta de Azeitão",
       "price": 2.80,
-      "description": "Torta fofa com recheio de ovos, enrolada à mão e polvilhada com açúcar. (Fatia)",
+      "description": "Fluffy tart with egg filling, hand-rolled and sprinkled with sugar. (Slice)",
       "imageUrl": "https://www.pingodoce.pt/wp-content/uploads/2022/03/torta-azeitao.jpg"
     },
     {
+        "id": 10,
       "title": "Guardanapo",
       "price": 1.60,
-      "description": "Bolo fofo em forma de guardanapo, recheado com um generoso creme de ovos.",
+      "description": "Fluffy cake shaped like a napkin, filled with a generous egg cream.",
       "imageUrl": "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw3bf4d8c7/images/hi-res/003202307.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF"
     },
     {
+      "id": 11,
       "title": "Pão de Deus",
       "price": 1.75,
-      "description": "Pão doce e fofo com uma cobertura de coco ralado e açúcar. Simplesmente divinal!",
+      "description": "Sweet and fluffy bread with a shredded coconut and sugar topping. Simply divine!",
       "imageUrl": "https://www.tasteatlas.com/images/dishes/c913e44e98db42c4ac5be9e200719761.jpg"
     },
     {
+        "id": 12,
       "title": "Jesuíta",
       "price": 1.90,
-      "description": "Pastel folhado triangular com uma cobertura crocante de glacé. Uma tentação conventual.",
+      "description": "Triangular puff pastry with a crispy glaze topping. A conventual temptation.",
       "imageUrl": "https://www.pingodoce.pt/wp-content/uploads/2021/08/jesuitas.jpeg"
     },
     {
+        "id": 13,
       "title": "Mil-folhas",
       "price": 2.50,
-      "description": "Camadas de massa folhada estaladiça intercaladas com creme de pasteleiro e cobertura de glacé.",
+      "description": "Layers of crispy puff pastry interspersed with pastry cream and a glaze topping.",
       "imageUrl": "https://www.barosa.com/wp-content/uploads/2022/08/Mil-Folhas-Escuro.jpg"
     },
     {
+        "id": 14,
       "title": "Arroz Doce",
       "price": 2.00,
-      "description": "Cremoso arroz cozido em leite, aromatizado com casca de limão e decorado com canela. (Taça)",
+      "description": "Creamy rice cooked in milk, flavored with lemon peel and decorated with cinnamon. (Bowl)",
       "imageUrl": "https://www.receitasnestle.com.br/sites/default/files/styles/recipe_detail_desktop_new/public/srh_recipes/a3ea1be90cbae91368a1775275c293c8.jpeg?itok=8d3QuUU5"
     },
     {
+        "id": 15,
       "title": "Leite Creme",
       "price": 2.10,
-      "description": "Sobremesa cremosa de leite e ovos com uma camada de açúcar queimado no momento. (Taça)",
+      "description": "Creamy milk and egg dessert with a layer of sugar torched at the moment. (Bowl)",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdRRLLtCxj_ZIXlKeJx4NXf4IuDYo7tAK6OQ&s"
     },
     {
+        "id": 16,
       "title": "Bolo Rei",
       "price": 18.00,
-      "description": "Bolo tradicional de Natal, em forma de coroa, com frutas cristalizadas e frutos secos.",
+      "description": "Traditional Christmas cake, in the shape of a crown, with candied fruits and nuts.",
       "imageUrl": "https://cdn.visitportugal.com/sites/default/files/styles/encontre_detalhe_poi_destaque/public/mediateca/shutterstock_154738796_BoloReiNatal_GV_Natalia%20Mylova_660x371.jpg?itok=532D9RP6"
     },
     {
+        "id": 17,
       "title": "Folar da Páscoa",
       "price": 12.50,
-      "description": "Pão doce tradicional da Páscoa, aromatizado com canela e erva-doce, por vezes com um ovo cozido.",
+      "description": "Traditional Easter sweet bread, flavored with cinnamon and anise, sometimes with a boiled egg.",
       "imageUrl": "https://e-leclerc.pt/wp-content/uploads/2022/11/Folar-da-pascoa.jpg"
     },
     {
+        "id": 18,
       "title": "Toucinho do Céu",
       "price": 3.00,
-      "description": "Bolo denso de amêndoa e gemas de ovo, uma receita conventual com história e sabor celestial. (Fatia)",
+      "description": "Dense almond and egg yolk cake, a conventual recipe with history and a heavenly taste. (Slice)",
       "imageUrl": "https://festivaldopaodelo.pt/wp-content/uploads/2021/03/toucinho-do-ceu-1.jpg"
     },
     {
+        "id": 19,
       "title": "Bolo de Bolacha",
       "price": 2.70,
-      "description": "Camadas de bolacha Maria embebida em café, alternadas com um delicioso creme de manteiga. (Fatia)",
+      "description": "Layers of Maria biscuit soaked in coffee, alternated with a delicious butter cream. (Slice)",
       "imageUrl": "https://docerar.pt/wp-content/uploads/2025/01/bolo-de-bolacha.jpg"
     },
     {
+        "id": 20,
       "title": "Palmier",
       "price": 1.40,
-      "description": "Biscoito de massa folhada, caramelizado e estaladiço, em forma de coração ou orelha.",
+      "description": "Puff pastry biscuit, caramelized and crispy, in the shape of a heart or an ear.",
       "imageUrl": "https://admin.docepedia.com/site/uploads/2024/08/palmie-d.jpg"
     }
   ]

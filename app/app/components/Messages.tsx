@@ -10,6 +10,7 @@ import {
   BrainCircuit,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import ShowPastry from "./ShowPastry";
 
 const getEmotionIcon = (emotion: string | null) => {
   switch (emotion) {
@@ -47,7 +48,7 @@ const getEmotionColor = (emotion: string | null) => {
   }
 };
 
-export function Messages({ messages, showEmotions, data }) {
+export function Messages({ messages, showEmotions }) {
   return (
     <div className="overflow-y-auto p-6 space-y-4 h-[600px] bg-card ">
       {messages.map((message) => (
@@ -86,7 +87,6 @@ export function Messages({ messages, showEmotions, data }) {
                   {message.content}
                 </p>
               </div>
-
               <div
                 className={`flex items-center gap-2 text-xs text-muted-foreground ${message.role === "user" ? "justify-end" : ""}`}
               >
@@ -94,17 +94,12 @@ export function Messages({ messages, showEmotions, data }) {
                   <>
                     {message.annotations?.[0].emotion && (
                       <div className="flex items-center gap-1">
+                        Answering with emotion:
                         {getEmotionIcon(message.annotations?.[0].emotion)}
                         <span className="capitalize">
                           {message.annotations?.[0].emotion}
                         </span>
                       </div>
-                    )}
-
-                    {message.adaptedTone && (
-                      <Badge variant="outline" className="text-xs">
-                        {message.adaptedTone} tone
-                      </Badge>
                     )}
                   </>
                 )}

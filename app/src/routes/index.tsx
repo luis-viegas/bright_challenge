@@ -31,16 +31,17 @@ function Home() {
 
   const [showEmotions, setShowEmotions] = useState(true);
 
-  let messagesTest = [];
-
   const { messages, input, setInput, append, data } = useChat({
     api: "/api/chat",
-    maxSteps: 2,
+    maxSteps: 20,
     fetch: (_url, options) => {
       const { messages } = JSON.parse(options!.body! as string);
       return generateResponse({
         data: {
           messages,
+          historicalEmotions: messages
+            .filter((msg) => msg.role === "assistant")
+            .map((msg) => msg.annotations?.[0]?.emotionResults),
         },
       });
     },
@@ -55,17 +56,15 @@ function Home() {
             Welcome to Bright Store
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Meet your personal AI shopping assistant, designed to make your
-            online experience as warm and helpful as shopping in a real-world
-            pastry. Whether you're looking for the perfect item or need a bit of
-            support, we're here to listen and adapt, ensuring your journey with
-            us is both personal and delightful.
+            This is a demo of a chat interface that is aware of the user's
+            emotions and adapts its responses accordingly. You can interact with
+            the chat by typing your messages below.
           </p>
         </div>
 
         {/* Chat Interface */}
         <div className="flex-1 flex flex-col mb-[100px]">
-          <Card className=" flex-1 flex flex-col ">
+          <Card className=" flex-1 flex flex-col pt-0">
             <CardHeader className="border-b bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-t-lg py-3">
               <div className="flex items-center justify-between">
                 <CardTitle className="flex items-center gap-2">

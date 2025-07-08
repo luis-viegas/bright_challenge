@@ -2,8 +2,8 @@ import { createServerFn } from "@tanstack/react-start";
 import { createDataStreamResponse, StreamData, streamText } from "ai";
 import { groq } from "@ai-sdk/groq";
 import { getEmotionForMessage } from "src/utils/emotion";
-import z, { unknown } from "zod";
 import { generateSystemPrompt } from "src/utils/prompts";
+import { getTools } from "src/utils/tools";
 
 export interface Message {
   id: string;
@@ -18,7 +18,9 @@ export const generateResponse = createServerFn({
   .validator(
     (d: {
       messages: Array<Message>;
-      systemPrompt?: { value: string; enabled: boolean };
+      historicalEmotions?: Array<
+        Array<{ label: string; score: number }> | unknown
+      >;
     }) => d
   )
   .handler(async ({ data }) => {
@@ -38,24 +40,31 @@ export const generateResponse = createServerFn({
     );
 
     const systemPrompt = generateSystemPrompt({
-      emotions: emotionResults,
+      currentEmotions: emotionResults,
+      historicalEmotions: data.historicalEmotions || [],
     });
-
     return createDataStreamResponse({
       execute: (dataStream) => {
         const result = streamText({
-          model: groq("llama-3.3-70b-versatile"),
+          model: groq("llama-3.1-8b-instant"),
           messages,
           system: systemPrompt,
+          tools: getTools(),
           onFinish: (data) => {
             dataStream.writeMessageAnnotation({
               text: data.text,
               emotion: emotionResults[0]?.label || "neutral",
+              emotionResults: emotionResults.map(({ label, score }) => ({
+                label,
+                score,
+              })),
             });
           },
+          onError: (error) => {
+            console.error("Error in AI response:", error);
+          },
 
-          //maxSteps: 20,
-          //tools,
+          maxSteps: 20,
         });
 
         result.mergeIntoDataStream(dataStream);

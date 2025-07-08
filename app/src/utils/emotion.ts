@@ -10,8 +10,6 @@ export async function getEmotionForMessage(message) {
     inputs: message,
   });
 
-  console.log("Emotion detection results:", results);
-
   if (!results || results.length === 0) {
     throw new Error("Could not classify the emotion.");
   }
